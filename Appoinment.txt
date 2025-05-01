@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Appointment Table</title>
+<style>
+   *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+
+}
+.nav{
+    background-color: white;
+    margin: 10px;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    border: none;
+    margin: 10px;
+
+
+}
+
+a:hover{
+    background-color: darkblue;
+    color: white;
+}
+a:active{
+    background-color: black;
+}
+p{
+    color: lightblue;
+}
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+       <div class ="nav">
+        <div class="logo col-2">
+            <img src="capture.png" alt="logo">
+            
+        </div>
+   
+        <div class="nav-bar col-6">
+        <a href="home.php"> Home </a>
+        <a href="About.php"> About </a>
+        <a href="appointment.php"> Appointment</a>
+        <a href="review.php"> Review </a>
+        <a href="contactUs.php"> Contact us </a>
+        <a href="login.php"> LOGIN </a>
+        </div>
+</div>
+    <hr>
+        <div class="rrr">
+        <input type="text" id="timeInput" placeholder="TIME">
+        <input type="text" id="dateInput" placeholder="DAY"><br><br>
+        <button onclick="addAppointment()">ADD</button>
+    </div>
+    <br>
+    <table id="appointmentTable">
+        <tr>
+            <th>Time</th>
+            <th>DAY</th>
+        </tr>
+    </table>
+
+    <script>
+        function addAppointment() {
+            var time = document.getElementById("timeInput").value;
+            var date = document.getElementById("dateInput").value;
+
+            if (time && date) {
+                var table = document.getElementById("appointmentTable");
+                var row = table.insertRow(-1);
+                var timeCell = row.insertCell(0);
+                var dateCell = row.insertCell(1);
+
+                timeCell.innerHTML = time;
+                dateCell.innerHTML = date;
+
+                document.getElementById("timeInput").value = "";
+                document.getElementById("dateInput").value = "";
+            } else {
+                alert("Please enter both time and date.");
+            }
+        }
+    </script>
+</body>
+</html>
